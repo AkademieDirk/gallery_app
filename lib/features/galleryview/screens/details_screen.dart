@@ -14,6 +14,7 @@ class DetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  // hier Variable aus der Imagelist verwenden ImageWidget
                   SizedBox(
                       height: 400,
                       width: 600,
@@ -24,6 +25,7 @@ class DetailsScreen extends StatelessWidget {
                       SizedBox(
                         width: 20,
                       ),
+                      //hier Variable einsetzen
                       Text(
                         "Überschrift",
                         style: TextStyle(
@@ -48,8 +50,13 @@ class DetailsScreen extends StatelessWidget {
                   ]),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
+                    // hier wird später die Variable aus der Liste eingesetzt
                     child: Text(
-                      "Lorem eu quis aute magna irure velit officia sunt reprehenderit irure do qui consectetur eiusmod. Nostrud officia anim elit veniam cupidatat duis quis cupidatat deserunt duis ullamco commodo ullamco. Reprehenderit adipisicing reprehenderit aliqua sint. Et id laboris amet anim tempor culpa velit occaecat. Nostrud duis tempor dolor quis voluptate labore occaecat velit anim ad minim culpa ut officia. Incididunt incididunt sunt laborum commodo ea voluptate non ut cupidatat.",
+                      """Lorem eu quis aute magna irure velit officia sunt reprehenderit irure do qui consectetur eiusmod. 
+                      Nostrud officia anim elit veniam cupidatat duis quis cupidatat deserunt duis ullamco commodo ullamco. 
+                      Reprehenderit adipisicing reprehenderit aliqua sint. Et id laboris amet anim tempor culpa velit occaecat. 
+                      Nostrud duis tempor dolor quis voluptate labore occaecat velit anim ad minim culpa ut officia. Incididunt i
+                      ncididunt sunt laborum commodo ea voluptate non ut cupidatat.""",
                       textAlign: TextAlign.justify,
                     ),
                   ),
