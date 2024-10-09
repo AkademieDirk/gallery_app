@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../features/galleryview/screens/details_screen.dart';
-import '../features/galleryview/screens/home_screen.dart';
-
 class BottomBar extends StatefulWidget {
   const BottomBar({super.key});
 
