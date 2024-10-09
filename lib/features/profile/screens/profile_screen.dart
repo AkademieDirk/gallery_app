@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+
 import 'package:gallery_app/features/galleryview/screens/home_screen.dart';
+import 'package:gallery_app/widgets/author_item.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key, required List galleryData});
+  const ProfileScreen({
+    super.key,
+    required this.authorItem,
+  });
+  final AuthorItem authorItem;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -25,17 +31,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 padding: const EdgeInsets.all(30.0),
                 child: CircleAvatar(
                     radius: 100,
-                    backgroundImage: AssetImage("assets/images/kaya.jpeg")),
+                    backgroundImage:
+                        AssetImage(widget.authorItem.authorImagePath)),
               ),
               SizedBox(height: 25),
               Text(
-                "Kaya Müller",
+                widget.authorItem.authorName,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Fotograf",
+                  widget.authorItem.authorProfession,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -43,8 +50,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   padding: const EdgeInsets.all(20.0),
                   // hier wird später die Variable aus der Liste eingesetzt
                   child: Text(
-                    "eine Leidenschaft und mein Können zu zeigen und eine Verbindung zwischen dem Betrachter und dem Bild herzustellen."
-                    "Mein Name ist Kaya Müller, ein Fotograf im Alter von 32 Jahren, der die Welt durch die Linse entdeckt. Mit einem Hintergrund in der visuellen Kunst und jahrelanger Erfahrung in der Fotografie habe ich einen Blick für die Schönheit im Alltäglichen entwickelt. Meine Spezialität liegt in der Sport- und Naturfotografie, wo ich das Spiel von Licht und Schatten einfange, um emotionale und aussagekräftige Bilder zu schaffen.\n\nIch glaube daran, dass jeder Moment einzigartig ist und seine eigene Geschichte erzählt. In meinen Arbeiten strebe ich danach, diese Geschichten visuell zu interpretieren und sie durch kreative Kompositionen und Nuancen zum Leben zu erwecken. Meine fotografische Reise hat mich durch verschiedene Länder geführt, wo ich die Vielfalt der Kulturen und Landschaften festhalte, immer auf der Suche nach neuen Perspektiven und Herausforderungen.\n\nMein Anspruch ist es, mit meinen Bildern nicht nur zu dokumentieren, sondern auch zu inspirieren und zu berühren. Jeder Auftrag und jedes Projekt ist für mich eine Möglichkeit, m",
+                    widget.authorItem.authorDescription,
                     textAlign: TextAlign.justify,
                   )),
             ]),
@@ -66,8 +72,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    HomeScreen(galleryData: [])));
+                                builder: (context) => HomeScreen(
+                                      galleryData: [],
+                                      authorData: [],
+                                    )));
                       },
                       child: Icon(Icons.grid_view)),
                   label: "Homescreen"),
@@ -75,17 +83,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   icon: GestureDetector(
                       onTap: () {
                         Navigator.pop(context);
-                      },
-                      child: Icon(Icons.door_back_door_sharp)),
-                  label: "Back"),
-              BottomNavigationBarItem(
-                  icon: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    HomeScreen(galleryData: [])));
                       },
                       child: Icon(Icons.door_back_door_sharp)),
                   label: "Back"),

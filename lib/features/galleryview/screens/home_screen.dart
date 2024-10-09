@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app/experiment.dart/puzzle_effect.dart';
+import 'package:gallery_app/features/galleryview/lists/author_data.dart';
 import 'package:gallery_app/features/galleryview/lists/gallery_data.dart';
 import 'package:gallery_app/features/galleryview/screens/details_screen.dart';
+import 'package:gallery_app/widgets/author_item.dart';
 import 'package:gallery_app/widgets/gallery_item.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.galleryData});
+  const HomeScreen({
+    super.key,
+    required this.galleryData,
+    required this.authorData,
+  });
   final List<GalleryItem> galleryData;
+  final List<AuthorItem> authorData;
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -33,28 +40,27 @@ class _HomeScreenState extends State<HomeScreen> {
               elevation: 10,
               child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DetailScreen(
-                                      galleryItem: galleryData[index],
-                                    )));
-                      },
-                      child:
-                          PuzzleImage(imagePath: galleryData[index].imagePath),
-                      //radius: 60,
-                      // backgroundImage:
-                    ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailScreen(
+                                    galleryItem: galleryData[index],
+                                  )));
+                    },
+                    child: SizedBox(
+                        height: 150,
+                        child: PuzzleImage(
+                            imagePath: galleryData[index].imagePath)),
+                    //radius: 60,
+                    // backgroundImage:
                   ),
                   //   ),
                   Text(
                     textAlign: TextAlign.center,
                     galleryData[index].imageTitle,
-                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),

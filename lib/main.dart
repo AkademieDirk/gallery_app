@@ -6,7 +6,7 @@ import 'package:gallery_app/features/galleryview/screens/home_screen.dart';
 
 void main() {
   runApp(const HomeScreen(
-    galleryData: [],
+    galleryData: [], authorData: [],
 
     //  galleryData: []
   ));

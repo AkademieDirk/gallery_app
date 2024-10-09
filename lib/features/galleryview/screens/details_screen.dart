@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_app/features/galleryview/lists/author_data.dart';
 
 import 'package:gallery_app/features/galleryview/screens/home_screen.dart';
 import 'package:gallery_app/features/profile/screens/profile_screen.dart';
+
 import 'package:gallery_app/widgets/gallery_item.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -101,8 +103,12 @@ class _DetailScreenState extends State<DetailScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  HomeScreen(galleryData: [])));
+                              builder: (context) => HomeScreen(
+                                    //! ist dies beides nötig???
+
+                                    galleryData: [],
+                                    authorData: [],
+                                  )));
                     },
                     child: Icon(Icons.grid_view)),
                 label: "Homescreen"),
@@ -110,10 +116,6 @@ class _DetailScreenState extends State<DetailScreen> {
                 icon: GestureDetector(
                     onTap: () {
                       Navigator.pop(context);
-                      // context,
-                      // MaterialPageRoute(
-                      //     builder: (context) =>
-                      //         HomeScreen(galleryData: [])));
                     },
                     child: Icon(Icons.door_back_door_sharp)),
                 label: "Back"),
@@ -124,7 +126,9 @@ class _DetailScreenState extends State<DetailScreen> {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  ProfileScreen(galleryData: [])));
+                                  //! hier muss dringend der Index übergeben werden bitte nachfragen
+
+                                  ProfileScreen(authorItem: authorData[0])));
                     },
                     child: Icon(Icons.person_2)),
                 label: "Profile"),
