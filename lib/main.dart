@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:gallery_app/features/galleryview/screens/details_screen.dart';
-import 'package:gallery_app/features/galleryview/screens/home_screen.dart';
-import 'package:gallery_app/features/profile/screens/profile_screen.dart';
+import 'package:gallery_app/experiment.dart/puzzle_effect.dart';
+import 'package:gallery_app/features/galleryview/lists/gallery_data.dart';
 
-import 'features/galleryview/lists/gallery_data.dart';
+import 'package:gallery_app/features/galleryview/screens/home_screen.dart';
 
 void main() {
   runApp(const HomeScreen(
     galleryData: [],
+
+    //  galleryData: []
   ));
 }
 
@@ -21,10 +22,7 @@ class MainApp extends StatelessWidget {
         child: Scaffold(
           body: Center(
             child: Column(
-              children: [
-                Text("$galleryData[2]"),
-                RootWidget(),
-              ],
+              children: [PuzzleImage(imagePath: galleryData[2].imagePath)],
             ),
           ),
         ),
