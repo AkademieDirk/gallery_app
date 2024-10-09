@@ -16,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
+      backgroundColor: Colors.blue[200],
       appBar: AppBar(
           backgroundColor: Colors.green[900],
           title: Text("Gridview", style: TextStyle(color: Colors.white))),
@@ -27,8 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
           return Padding(
             padding: const EdgeInsets.all(4.0),
             child: Card(
-              //    color: const Color.fromARGB(255, 54, 127, 154),
-              elevation: 8,
+              //  margin: EdgeInsets.all(14),
+              color: Colors.white70,
+              elevation: 10,
               child: Column(
                 children: [
                   Padding(
@@ -49,14 +51,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   //   ),
-                  Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        textAlign: TextAlign.center,
-                        galleryData[index].imageTitle,
-                        style: TextStyle(
-                            fontSize: 10, fontWeight: FontWeight.bold),
-                      )),
+                  Text(
+                    textAlign: TextAlign.center,
+                    galleryData[index].imageTitle,
+                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                  ),
                 ],
               ),
             ),

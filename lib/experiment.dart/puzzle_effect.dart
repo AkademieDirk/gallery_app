@@ -21,7 +21,7 @@ class PuzzleImage extends StatelessWidget {
                       child: Image(
                         image: AssetImage(imagePath),
                         width: 150,
-                        height: 100,
+                        height: 150,
                       ))),
               // Zweites Teil
               Padding(
