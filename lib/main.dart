@@ -7,7 +7,7 @@ import 'package:gallery_app/features/galleryview/lists/gallery_data.dart';
 import 'package:gallery_app/features/galleryview/screens/details_screen.dart';
 
 import 'package:gallery_app/features/galleryview/screens/home_screen.dart';
-import 'package:gallery_app/features/galleryview/screens/home_screen_listview.dart';
+import 'package:gallery_app/features/galleryview/screens/home_screen_list_view.dart';
 import 'package:gallery_app/widgets/gallery_item.dart';
 
 void main() {
