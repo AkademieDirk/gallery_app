@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.blue[200],
       appBar: AppBar(
           backgroundColor: Colors.green[900],
-          title: Text("Gridview", style: TextStyle(color: Colors.white))),
+          title: Text("My Gallery", style: TextStyle(color: Colors.white))),
       body: GridView.builder(
         itemCount: galleryData.length,
         gridDelegate:

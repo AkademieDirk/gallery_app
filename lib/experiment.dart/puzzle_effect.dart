@@ -20,7 +20,7 @@ class PuzzleImage extends StatelessWidget {
                       heightFactor: 0.5,
                       child: Image(
                         image: AssetImage(imagePath),
-                        width: 150,
+                        width: 200,
                         height: 100,
                       ))),
               // Zweites Teil
