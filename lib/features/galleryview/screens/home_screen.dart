@@ -45,7 +45,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => DetailScreen(
-                                    galleryItem: galleryData[index],
+                                    index: index,
+                                    galleryData: galleryData,
                                   )));
                     },
                     child: SizedBox(

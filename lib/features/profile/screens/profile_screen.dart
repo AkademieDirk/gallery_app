@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_app/features/galleryview/lists/author_data.dart';
+import 'package:gallery_app/features/galleryview/lists/gallery_data.dart';
 
 import 'package:gallery_app/features/galleryview/screens/home_screen.dart';
 import 'package:gallery_app/widgets/author_item.dart';
@@ -8,7 +10,7 @@ class ProfileScreen extends StatefulWidget {
     super.key,
     required this.authorItem,
   });
-  final AuthorItem authorItem;
+  final List<AuthorItem> authorItem;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -32,17 +34,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: CircleAvatar(
                     radius: 100,
                     backgroundImage:
-                        AssetImage(widget.authorItem.authorImagePath)),
+                        AssetImage(widget.authorItem[0].authorImagePath)),
               ),
               SizedBox(height: 25),
               Text(
-                widget.authorItem.authorName,
+                widget.authorItem[0].authorName,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  widget.authorItem.authorProfession,
+                  widget.authorItem[0].authorProfession,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -50,7 +52,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   padding: const EdgeInsets.all(20.0),
                   // hier wird später die Variable aus der Liste eingesetzt
                   child: Text(
-                    widget.authorItem.authorDescription,
+                    widget.authorItem[0].authorDescription,
                     textAlign: TextAlign.justify,
                   )),
             ]),
@@ -73,8 +75,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => HomeScreen(
-                                      galleryData: [],
-                                      authorData: [],
+                                      galleryData: galleryData,
+                                      authorData: authorData,
                                     )));
                       },
                       child: Icon(Icons.grid_view)),

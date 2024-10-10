@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app/features/galleryview/lists/author_data.dart';
+import 'package:gallery_app/features/galleryview/lists/gallery_data.dart';
 
 import 'package:gallery_app/features/galleryview/screens/home_screen.dart';
 import 'package:gallery_app/features/profile/screens/profile_screen.dart';
@@ -7,11 +8,13 @@ import 'package:gallery_app/features/profile/screens/profile_screen.dart';
 import 'package:gallery_app/widgets/gallery_item.dart';
 
 class DetailScreen extends StatefulWidget {
-  final GalleryItem galleryItem;
+  final List<GalleryItem> galleryData;
+  final int index;
 
   const DetailScreen({
     super.key,
-    required this.galleryItem,
+    required this.galleryData,
+    required this.index,
   });
 
   @override
@@ -29,7 +32,7 @@ class _DetailScreenState extends State<DetailScreen> {
         home: Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.green[900],
-          title: Text(widget.galleryItem.imageTitle,
+          title: Text(galleryData[widget.index].imageTitle,
               style: TextStyle(color: Colors.white))),
       body: SingleChildScrollView(
         child: Column(
@@ -45,8 +48,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     borderRadius: BorderRadius.circular(100),
                     child: Image(
                       image: AssetImage(
-                        widget.galleryItem.imagePath,
-                      ),
+                          widget.galleryData[widget.index].imagePath),
                     ),
                   )),
             ),
@@ -57,7 +59,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
                 //hier Variable einsetzen
                 Text(
-                  widget.galleryItem.imageTitle,
+                  widget.galleryData[widget.index].imageTitle,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 Expanded(child: SizedBox())
@@ -69,7 +71,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 width: 20,
               ),
               Text(
-                widget.galleryItem.imageDate,
+                widget.galleryData[widget.index].imageDate,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               SizedBox(
@@ -80,7 +82,7 @@ class _DetailScreenState extends State<DetailScreen> {
               padding: const EdgeInsets.all(20.0),
               // hier wird später die Variable aus der Liste eingesetzt
               child: Text(
-                widget.galleryItem.imageDescription,
+                widget.galleryData[widget.index].imageDescription,
                 textAlign: TextAlign.justify,
               ),
             ),
@@ -104,10 +106,8 @@ class _DetailScreenState extends State<DetailScreen> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => HomeScreen(
-                                    //! ist dies beides nötig???
-
-                                    galleryData: [],
-                                    authorData: [],
+                                    galleryData: galleryData,
+                                    authorData: authorData,
                                   )));
                     },
                     child: Icon(Icons.grid_view)),
@@ -125,10 +125,12 @@ class _DetailScreenState extends State<DetailScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  //! hier muss dringend der Index übergeben werden bitte nachfragen
-
-                                  ProfileScreen(authorItem: authorData[0])));
+                              builder: (
+                            context,
+                          ) =>
+                                  ProfileScreen(
+                                    authorItem: authorData,
+                                  )));
                     },
                     child: Icon(Icons.person_2)),
                 label: "Profile"),

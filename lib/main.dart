@@ -2,19 +2,20 @@
 
 import 'package:flutter/material.dart';
 import 'package:gallery_app/experiment.dart/puzzle_effect.dart';
+import 'package:gallery_app/features/galleryview/lists/author_data.dart';
 import 'package:gallery_app/features/galleryview/lists/gallery_data.dart';
+import 'package:gallery_app/features/galleryview/screens/details_screen.dart';
 
 import 'package:gallery_app/features/galleryview/screens/home_screen.dart';
 import 'package:gallery_app/features/galleryview/screens/home_screen_listview.dart';
 import 'package:gallery_app/widgets/gallery_item.dart';
 
 void main() {
-  runApp(HomescreenListView(
-    galleryData: galleryData,
-    //galleryData: [], authorData: [],
+  runApp(HomeScreen(galleryData: galleryData, authorData: authorData
+      //galleryData: [], authorData: [],
 
-    //  galleryData: []
-  ));
+      //  galleryData: []
+      ));
 }
 
 class MainApp extends StatelessWidget {
